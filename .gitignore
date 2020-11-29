@@ -13,6 +13,8 @@
 *~
 **/stashedSave.xml
 
+*.log
+
 # VSCode
 .vscode
 
