@@ -2,8 +2,8 @@
 
 namespace SecretSantaGameJam2020.Utils.CustomAttributes {
 	[AttributeUsage(AttributeTargets.Field)]
-	public class NotNullCustomAttribute : BaseCustomAttribute{
-		public NotNullCustomAttribute() : base(true) {}
-		public NotNullCustomAttribute(bool checkInPrefab) : base(checkInPrefab) { }
+	public class NotNullAttribute : BaseCustomAttribute{
+		public NotNullAttribute() : base(true) {}
+		public NotNullAttribute(bool checkInPrefab) : base(checkInPrefab) { }
 	}
 }

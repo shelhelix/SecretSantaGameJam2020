@@ -27,7 +27,7 @@ namespace SecretSantaGameJam2020.Utils {
 					}
 
 					switch ( attribute ) {
-						case NotNullCustomAttribute _: {
+						case NotNullAttribute _: {
 							var value = fieldInfo.GetValue(obj);
 							if ( value == null || ((value is Object unityObj) && !unityObj) ) {
 								Debug.LogErrorFormat(context, "{0} is null", fieldInfo.Name);
