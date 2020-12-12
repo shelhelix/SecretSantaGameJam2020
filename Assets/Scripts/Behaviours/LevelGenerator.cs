@@ -56,6 +56,9 @@ namespace SecretSantaGameJam2020.Behaviours {
 			var availableRooms = new List<RoomInfo>{startRoom};
 			for ( var cellIndex = 0; cellIndex < CellsCount; cellIndex++ ) {
 				var room = GetRandomRoom(availableRooms);
+				if ( room == null ) {
+					break;
+				}
 				var emptyCellPos = GetRandomNeighbourEmptyCell(map, room);
 				if ( emptyCellPos == InvalidIndex ) {
 					availableRooms.Remove(room);
@@ -115,6 +118,9 @@ namespace SecretSantaGameJam2020.Behaviours {
 		}
 		
 		RoomInfo GetRandomRoom(List<RoomInfo> roomInfos) {
+			if ( roomInfos.Count == 0 ) {
+				return null;
+			}
 			var index = Random.Range(0, roomInfos.Count);
 			return roomInfos[index];
 		}

@@ -134,8 +134,8 @@ GameObject:
   - component: {fileID: 414285765}
   - component: {fileID: 414285764}
   - component: {fileID: 414285763}
-  - component: {fileID: 414285769}
   - component: {fileID: 414285768}
+  - component: {fileID: 414285769}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -263,8 +263,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &414285769
-BoxCollider2D:
+--- !u!58 &414285769
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -277,18 +277,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.6
 --- !u!1 &508951744
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,6 +440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelGenerator: {fileID: 1449551976}
+  TestRoom: {fileID: 0}
 --- !u!1 &1609352350
 GameObject:
   m_ObjectHideFlags: 0
