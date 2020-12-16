@@ -406,11 +406,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60516dbf45814c0db76343baa0540417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GridSizeX: 10
-  GridSizeY: 10
-  CellsCount: 40
+  GridSizeX: 20
+  GridSizeY: 20
+  CellsCount: 100
   RoomSize: {x: 20, y: 20}
   RoomPrefab: {fileID: 586279507374224271, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+    type: 3}
+  ExitRoomPrefab: {fileID: 586279507374224271, guid: f19dbb0434a3511469a8c5e79665ad4f,
     type: 3}
   LevelRoot: {fileID: 1662948967}
 --- !u!4 &1449551977
@@ -440,7 +442,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelGenerator: {fileID: 1449551976}
-  TestRoom: {fileID: 0}
 --- !u!1 &1609352350
 GameObject:
   m_ObjectHideFlags: 0

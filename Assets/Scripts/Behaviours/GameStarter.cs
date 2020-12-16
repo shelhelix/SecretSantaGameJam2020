@@ -6,7 +6,10 @@ namespace SecretSantaGameJam2020.Behaviours {
 		[NotNull] public LevelGenerator LevelGenerator;
 		
 		void Start() {
-			LevelGenerator.GenerateLevel();
+			// Generate new state 
+			var map = LevelGenerator.GenerateMap();
+			// Generate map object based on state 
+			LevelGenerator.GenerateLevelObjects(map);
 		}
 	}
 }

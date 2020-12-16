@@ -8,7 +8,7 @@ namespace SecretSantaGameJam2020.Behaviours.Rooms {
 		[NotNull] public Teleport RightTeleport;
 		[NotNull] public Teleport BottomTeleport;
 		
-		public void Init(bool isLeftDoorOpened, bool isRightDoorOpened, bool isUpperDoorOpened, bool isBottomDoorOpened) {
+		public virtual void Init(bool isLeftDoorOpened, bool isRightDoorOpened, bool isUpperDoorOpened, bool isBottomDoorOpened) {
 			UpperTeleport.Init(isUpperDoorOpened);
 			LeftTeleport.Init(isLeftDoorOpened);
 			RightTeleport.Init(isRightDoorOpened);
