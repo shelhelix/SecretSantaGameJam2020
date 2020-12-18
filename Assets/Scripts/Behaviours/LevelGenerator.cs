@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 using System.Collections.Generic;
-
+using System.Diagnostics;
 using SecretSantaGameJam2020.Behaviours.Common;
 using SecretSantaGameJam2020.Behaviours.Rooms;
 using SecretSantaGameJam2020.State;
@@ -38,7 +38,7 @@ namespace SecretSantaGameJam2020.Behaviours {
 			return map;
 		}
 
-		public void GenerateLevelObjects(LevelMap map) {
+		public void GenerateLevelObjects(GameStarter starter, LevelMap map) {
 			for ( var x = 0; x < GridSizeX; x++ ) {
 				for ( var y = 0; y < GridSizeY; y++ ) {
 					if ( map.HasRoom(x, y) ) {
@@ -55,12 +55,12 @@ namespace SecretSantaGameJam2020.Behaviours {
 						switch (roomInfo.RoomType) {
 							case RoomType.SimpleRoom: {
 								var comp = go.GetComponent<Room>();
-								comp.Init(isLeftOpened, isRightOpened, isUpperOpened, isBottomOpened);
+								comp.Init(starter, isLeftOpened, isRightOpened, isUpperOpened, isBottomOpened);
 								break;
 							}
 							case RoomType.RoomWithExit: {
 								var comp = go.GetComponent<ExitRoom>();
-								comp.Init(isLeftOpened, isRightOpened, isUpperOpened, isBottomOpened);
+								comp.Init(starter, isLeftOpened, isRightOpened, isUpperOpened, isBottomOpened);
 								break;
 							}
 						}

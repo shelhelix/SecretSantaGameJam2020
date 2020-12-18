@@ -6,7 +6,7 @@ using SecretSantaGameJam2020.Behaviours.Common;
 
 namespace SecretSantaGameJam2020.Behaviours.Rooms {
 	public class ActionPoint : BaseGameComponent {
-		const string ActionKey = "E";
+		const string ActionKey = "Interact";
 
 		Action _action;
 		

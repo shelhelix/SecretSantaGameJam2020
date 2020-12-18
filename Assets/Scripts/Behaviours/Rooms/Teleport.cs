@@ -1,12 +1,13 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+
+using System;
 
 using SecretSantaGameJam2020.Behaviours.Common;
 using SecretSantaGameJam2020.Utils.CustomAttributes;
 
 namespace SecretSantaGameJam2020.Behaviours.Rooms {
 	public class Teleport : BaseGameComponent {
-		const string TeleportKey = "E";
+		const string TeleportKey = "Interact";
 		
 		[NotNull] public Transform DestinationPoint;
 		
@@ -32,10 +33,6 @@ namespace SecretSantaGameJam2020.Behaviours.Rooms {
 			if ( playerComp ) {
 				IsTeleportActive = true;
 				_playerGO = other.gameObject;
-			}
-			else {
-				// Instant teleport ???
-				TeleportObject(other.gameObject);
 			}
 		}
 
