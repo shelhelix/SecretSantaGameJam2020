@@ -8,9 +8,15 @@ using SecretSantaGameJam2020.Utils.Events;
 
 namespace SecretSantaGameJam2020.Behaviours {
     public class Enemy : BaseGameComponent, IDestructable {
-        public float Speed  = 11;
-        public float Hp     = 3;
+        public float Speed        = 1f;
+        public float SprintSpeed  = 2f;
+        public float Hp           = 3;
+        public float SpinDistance = 5f;
+        public float TorqueSpeed  = 1f;
+        public float BreakPower   = 15f;
         
+        public float MaxSpeedMagnitude = 2f;
+
         
         [NotNull] public Rigidbody2D Rigidbody;
         
@@ -32,8 +38,17 @@ namespace SecretSantaGameJam2020.Behaviours {
             if ( !_inited ) {
                 return;
             }
-            var directionToPlayer = (_playerTrans.position - transform.position).normalized;
-            Rigidbody.velocity = directionToPlayer * Speed;
+            var vectorToPlayer = (_playerTrans.position - transform.position);
+            if ( SpinDistance > vectorToPlayer.magnitude ) {
+                Rigidbody.AddTorque(TorqueSpeed);
+                Rigidbody.angularDrag = 0.05f;
+            }
+            else {
+                Rigidbody.angularDrag = BreakPower;
+            }
+            var forcePowerDirection = (vectorToPlayer.magnitude < 2.5f) ? -vectorToPlayer.normalized : vectorToPlayer.normalized;
+            ComponentUtils.MoveRigidbody(Rigidbody, forcePowerDirection * Speed);
+            ComponentUtils.LimitRigidbodySpeed(Rigidbody, Speed);
         }
 
         void OnPlayerDied(PlayerDied e) {

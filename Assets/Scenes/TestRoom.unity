@@ -175,7 +175,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -240,6 +240,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 452946513363755455, guid: 8d12b19e762ae9f4286d49595f6d6681,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 452946513982744524, guid: 8d12b19e762ae9f4286d49595f6d6681,
         type: 3}
       propertyPath: m_Mesh
@@ -250,6 +255,11 @@ PrefabInstance:
       propertyPath: HolderRigidbody
       value: 
       objectReference: {fileID: 1909417238}
+    - target: {fileID: 452946513982744531, guid: 8d12b19e762ae9f4286d49595f6d6681,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8167537201418124432, guid: 8d12b19e762ae9f4286d49595f6d6681,
         type: 3}
       propertyPath: m_Name
@@ -412,6 +422,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1374158193969729604, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: Damage
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1374158193969729604, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: DashPower
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2248463541233222047, guid: 3b446ec8d099ff44bbe3647e24c529e3,
         type: 3}
       propertyPath: m_Mesh
@@ -422,6 +442,21 @@ PrefabInstance:
       propertyPath: Hp
       value: 999
       objectReference: {fileID: 0}
+    - target: {fileID: 2298882285506892600, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: SprintSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2298882285506892600, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: MaxSpeedMagnitude
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2298882285506892600, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: RotationSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2644817733563935876, guid: 3b446ec8d099ff44bbe3647e24c529e3,
         type: 3}
       propertyPath: m_Enabled
@@ -431,6 +466,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3119431063764428010, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3240646645011976581, guid: 3b446ec8d099ff44bbe3647e24c529e3,
         type: 3}
@@ -497,6 +537,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4187689906727730933, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4355806449957314570, guid: 3b446ec8d099ff44bbe3647e24c529e3,
         type: 3}
       propertyPath: m_IsActive
@@ -517,10 +562,20 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7280354884171173435, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7318037282161620622, guid: 3b446ec8d099ff44bbe3647e24c529e3,
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545269354550534843, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7636463040769173174, guid: 3b446ec8d099ff44bbe3647e24c529e3,
         type: 3}
@@ -531,6 +586,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874072987839177983, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b446ec8d099ff44bbe3647e24c529e3, type: 3}

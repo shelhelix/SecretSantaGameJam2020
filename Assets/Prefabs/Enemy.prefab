@@ -274,6 +274,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 1
   Hp: 3
+  SpinDistance: 5
+  TorqueSpeed: 1
+  BreakPower: 15
   Rigidbody: {fileID: 5792791450184022246}
 --- !u!50 &5792791450184022246
 Rigidbody2D:
@@ -294,7 +297,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &9090254450276984581
 CircleCollider2D:

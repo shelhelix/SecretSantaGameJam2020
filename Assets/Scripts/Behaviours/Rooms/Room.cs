@@ -10,7 +10,8 @@ namespace SecretSantaGameJam2020.Behaviours.Rooms {
 		[NotNull] public Teleport RightTeleport;
 		[NotNull] public Teleport BottomTeleport;
 
-		[NotNull] public List<Enemy> Enemies;
+		[NotNull] public List<PlayerLikeEnemy> Enemies;
+		[NotNull] public List<DashEnemy>       DashEnemies;
 		
 		public virtual void Init(GameObject player, bool isLeftDoorOpened, bool isRightDoorOpened, bool isUpperDoorOpened, bool isBottomDoorOpened) {
 			UpperTeleport.Init(isUpperDoorOpened);
@@ -18,6 +19,9 @@ namespace SecretSantaGameJam2020.Behaviours.Rooms {
 			RightTeleport.Init(isRightDoorOpened);
 			BottomTeleport.Init(isBottomDoorOpened);
 			foreach (var enemy in Enemies) {
+				enemy.Init(player);
+			}
+			foreach (var enemy in DashEnemies) {
 				enemy.Init(player);
 			}
 		}
