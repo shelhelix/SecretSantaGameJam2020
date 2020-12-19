@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 
 using System;
-using DG.Tweening;
+
 using SecretSantaGameJam2020.Behaviours.Common;
 using SecretSantaGameJam2020.Events;
+using SecretSantaGameJam2020.Utils;
 using SecretSantaGameJam2020.Utils.CustomAttributes;
 using SecretSantaGameJam2020.Utils.Events;
 
@@ -41,8 +42,10 @@ namespace SecretSantaGameJam2020.Behaviours {
 
 		void Update() {
 			var moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-			Rigidbody.velocity = (Vector3) moveDirection * Speed;
-			if (Input.GetButtonDown(ThrustButtonName)) {
+			ComponentUtils.MoveRigidbody(Rigidbody, moveDirection * Speed);
+			ComponentUtils.LimitRigidbodySpeed(Rigidbody, Speed);
+			
+			if (Input.GetButtonDown(FireButtonName)) {
 				Rigidbody.AddTorque(TorquePower, ForceMode2D.Impulse);				
 			}
 			// if ( Input.GetButtonDown(FireButtonName) ) {
@@ -61,7 +64,7 @@ namespace SecretSantaGameJam2020.Behaviours {
 				Rigidbody.angularDrag = _defaultAngularDrag;
 			}
 			// Stop small rotation
-			if (Rigidbody.angularVelocity < MinAngularVelocity) {
+			if ( (Rigidbody.angularVelocity > -MinAngularVelocity) && (Rigidbody.angularVelocity < MinAngularVelocity) ) {
 				Rigidbody.angularVelocity = 0f;
 			}
 			OnPlayerMoved?.Invoke();
