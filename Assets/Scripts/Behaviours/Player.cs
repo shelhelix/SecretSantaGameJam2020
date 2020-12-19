@@ -71,11 +71,7 @@ namespace SecretSantaGameJam2020.Behaviours {
 		}
 
 		public void GetDamage(float damage) {
-			Hp -= damage;
-			if (Hp <= 0f) {
-				Debug.Log("Player is dead");
-				Destroy(gameObject);
-			}
+			Hp = ComponentUtils.DefaultHpBehaviour(gameObject, Hp, damage);
 		}
 	}
 }

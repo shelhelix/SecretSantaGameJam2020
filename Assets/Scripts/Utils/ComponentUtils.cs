@@ -18,5 +18,20 @@ namespace SecretSantaGameJam2020.Utils {
                 rigidbody2D.velocity = rigidbody2D.velocity.normalized * maxSpeed;
             }
         }
+
+        public static float DefaultHpBehaviour(GameObject obj, float hp, float damage) {
+            var newHp = hp - damage;
+            if ( newHp <= 0 ) {
+                MonoBehaviour.print($"{obj} destroyed.");
+                GameObject.Destroy(obj);
+            }
+            MonoBehaviour.print($"Dealed damage {damage} to {obj}.\nLeft hp {newHp}");
+            return newHp;
+        }
+
+        public static void DefaultDealDamage(GameObject target, float damage) {
+            var destructable = target.GetComponent<IDestructable>();
+            destructable?.GetDamage(damage);
+        }
     }
 }

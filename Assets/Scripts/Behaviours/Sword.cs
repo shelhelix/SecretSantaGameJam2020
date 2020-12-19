@@ -17,11 +17,7 @@ namespace SecretSantaGameJam2020.Behaviours {
                 return;
             }
             var contact = other.contacts[0]; 
-            var destructable = contact.collider.gameObject.GetComponent<IDestructable>();
-            if ( destructable != null ) {
-                destructable.GetDamage(Damage);
-                print("Deal damage to " + contact.collider.gameObject);
-            }
+            ComponentUtils.DefaultDealDamage(contact.collider.gameObject, Damage);
         }
     }
 }
