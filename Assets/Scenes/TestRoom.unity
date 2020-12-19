@@ -225,11 +225,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 452946513363755448, guid: 8d12b19e762ae9f4286d49595f6d6681,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 452946513363755450, guid: 8d12b19e762ae9f4286d49595f6d6681,
+        type: 3}
+      propertyPath: Hp
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 452946513363755451, guid: 8d12b19e762ae9f4286d49595f6d6681,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 452946513982744524, guid: 8d12b19e762ae9f4286d49595f6d6681,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 452946513982744526, guid: 8d12b19e762ae9f4286d49595f6d6681,
+        type: 3}
+      propertyPath: HolderRigidbody
+      value: 
+      objectReference: {fileID: 1909417238}
     - target: {fileID: 8167537201418124432, guid: 8d12b19e762ae9f4286d49595f6d6681,
         type: 3}
       propertyPath: m_Name
@@ -359,6 +379,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TestRoom: {fileID: 1363220936}
   Player: {fileID: 903124321}
+--- !u!50 &1230625558 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 3913450408161224416, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1363220935}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1363220935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -391,6 +417,31 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2298882285506892600, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: Hp
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644817733563935876, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936497834776050876, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3240646645011976581, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: Enemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684107516236436055, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: HolderRigidbody
+      value: 
+      objectReference: {fileID: 1230625558}
     - target: {fileID: 4005364914179672289, guid: 3b446ec8d099ff44bbe3647e24c529e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -446,6 +497,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4355806449957314570, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664111013074750439, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5943142612513246125, guid: 3b446ec8d099ff44bbe3647e24c529e3,
         type: 3}
       propertyPath: m_Mesh
@@ -455,6 +516,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318037282161620622, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7636463040769173174, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8159541730992384568, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b446ec8d099ff44bbe3647e24c529e3, type: 3}
@@ -470,3 +546,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e51bcb69ac416f977100493405c632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &1909417238 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 452946513363755444, guid: 8d12b19e762ae9f4286d49595f6d6681,
+    type: 3}
+  m_PrefabInstance: {fileID: 903124320}
+  m_PrefabAsset: {fileID: 0}

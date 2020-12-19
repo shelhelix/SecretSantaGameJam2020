@@ -10,7 +10,6 @@ namespace SecretSantaGameJam2020.Behaviours {
     public class Enemy : BaseGameComponent, IDestructable {
         public float Speed  = 11;
         public float Hp     = 3;
-        public float Damage = 1;
         
         
         [NotNull] public Rigidbody2D Rigidbody;
@@ -27,11 +26,6 @@ namespace SecretSantaGameJam2020.Behaviours {
 
         void OnDestroy() {
             EventManager.Unsubscribe<PlayerDied>(OnPlayerDied);
-        }
-
-
-        void OnTriggerEnter2D(Collider2D other) {
-            ComponentUtils.TryDealDamage(other.gameObject, Damage);
         }
 
         void Update() {

@@ -131,8 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f55e8e0b45a3402689f3ef1b1742c7c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Holder: {fileID: 5225496473748864069}
+  HolderRigidbody: {fileID: 5792791450184022246}
   Damage: 1
+  SlowDownCoeff: 0.5
 --- !u!70 &8125021829880111910
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -273,7 +274,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 1
   Hp: 3
-  Damage: 1
   Rigidbody: {fileID: 5792791450184022246}
 --- !u!50 &5792791450184022246
 Rigidbody2D:

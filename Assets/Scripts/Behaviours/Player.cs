@@ -32,7 +32,7 @@ namespace SecretSantaGameJam2020.Behaviours {
 		void Start() {
 			_defaultAngularDrag = Rigidbody.angularDrag;
 			Rigidbody.centerOfMass = Vector2.zero;
-			Sword.gameObject.SetActive(false);
+			Sword.gameObject.SetActive(true);
 		}
 
 		void OnDestroy() {
@@ -45,12 +45,12 @@ namespace SecretSantaGameJam2020.Behaviours {
 			if (Input.GetButtonDown(ThrustButtonName)) {
 				Rigidbody.AddTorque(TorquePower, ForceMode2D.Impulse);				
 			}
-			if ( Input.GetButtonDown(FireButtonName) ) {
-				Sword.gameObject.SetActive(true);
-			}
-			if ( Input.GetButtonUp(FireButtonName) ) {
-				Sword.gameObject.SetActive(false);
-			}
+			// if ( Input.GetButtonDown(FireButtonName) ) {
+			// 	Sword.gameObject.SetActive(true);
+			// }
+			// if ( Input.GetButtonUp(FireButtonName) ) {
+			// 	Sword.gameObject.SetActive(false);
+			// }
 			if (Input.GetButtonDown(BreakButtonName)) {
 				Rigidbody.angularDrag = BreakAngularDrag;
 			}
