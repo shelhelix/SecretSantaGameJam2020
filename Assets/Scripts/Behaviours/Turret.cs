@@ -5,20 +5,16 @@ using SecretSantaGameJam2020.Utils.CustomAttributes;
 
 namespace SecretSantaGameJam2020.Behaviours {
     public class Turret : BaseEnemy, IDestructable {
-        const float ReloadBulletTime = 3f;
-        const float BulletFireTime   = 1f;
-        const float FireRate         = 10f;
 
         [NotNull] public ColliderTrigger StartFireRange;
         [NotNull] public ColliderTrigger EndFireRange;
         [NotNull] public GameObject      BulletPrefab;
         [NotNull] public Collider2D      Collider;
 
-        public float RotationSpeed = 0.1f;
+        public float BulletFireDelay = 0.5f;
+        public float RotationSpeed   = 0.1f;
         public float Hp = 3;
         
-        readonly Timer _bulletReloadTimer   = new Timer();
-        readonly Timer _bulletFireTimer     = new Timer();
         readonly Timer _bulletFireRateTimer = new Timer();
         
         Transform _target;
@@ -40,9 +36,6 @@ namespace SecretSantaGameJam2020.Behaviours {
             if ( _isFiring ) {
                 TryFire();
             }
-            else {
-                TryReload();
-            }
 
             LookToTarget();
         }
@@ -58,47 +51,33 @@ namespace SecretSantaGameJam2020.Behaviours {
         
         void TryFire() {
             var vectorToTarget = _target.position - transform.position;
-            if ( _bulletFireTimer.Tick(Time.deltaTime) ) {
-                _bulletReloadTimer.Init(ReloadBulletTime);
-                _bulletFireTimer.Stop();
-                _isFiring = false;
+            if ( !_bulletFireRateTimer.Tick(Time.deltaTime) ) {
+                return;
             }
-            else {
-                var bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
-                var bulletComp = bullet.GetComponent<Bullet>();
-                if ( !bulletComp ) {
-                    Debug.LogError("can't find Bullet component in bullet object");
-                }
-                else {
-                    bulletComp.Init(Collider, vectorToTarget.normalized);
-                }
+            var bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
+            var bulletComp = bullet.GetComponent<Bullet>();
+            if ( !bulletComp ) {
+                Debug.LogError("can't find Bullet component in bullet object");
+                return;
             }
-        }
-
-        void TryReload() {
-            if ( _bulletReloadTimer.Tick(Time.deltaTime) ) {
-                _isFiring = true;
-                _bulletReloadTimer.Stop();
-                _bulletFireTimer.Init(BulletFireTime);
-            }
+            bulletComp.Init(Collider, vectorToTarget.normalized);
         }
 
         void OnEnterFireRange(Collider2D other) {
             var playerComp = other.GetComponent<Player>();
-            if ( playerComp ) {
-                _target = other.gameObject.transform;
-                _isFiring = true;
-                _bulletReloadTimer.Stop();
-                _bulletFireTimer.Init(BulletFireTime);
+            if ( !playerComp ) {
+                return;
             }
+            _target = other.gameObject.transform;
+            _isFiring = true;
+            _bulletFireRateTimer.Init(BulletFireDelay);
         }
 
         void OnLeaveFireRange(Collider2D other) {
             if ( _target && (other.gameObject == _target.gameObject) ) {
                 _target = null;
                 _isFiring = false;
-                _bulletReloadTimer.Stop();
-                _bulletFireTimer.Stop();
+                _bulletFireRateTimer.Stop();
             }
         }
 
