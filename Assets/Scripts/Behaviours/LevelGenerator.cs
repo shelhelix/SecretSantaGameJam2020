@@ -67,8 +67,9 @@ namespace SecretSantaGameJam2020.Behaviours {
 								break;
 							}
 							case RoomType.RoomWithExit: {
-								comp = go.GetComponent<ExitRoom>();
-								comp.Init(isLeftOpened, isRightOpened, isUpperOpened, isBottomOpened);
+								var exitRoom = go.GetComponent<ExitRoom>();
+								exitRoom.Init(starter.LevelUI, isLeftOpened, isRightOpened, isUpperOpened, isBottomOpened);
+								comp = exitRoom;
 								break;
 							}
 						}

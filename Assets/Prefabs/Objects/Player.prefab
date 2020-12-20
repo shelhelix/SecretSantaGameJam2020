@@ -298,7 +298,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
 --- !u!70 &452946513982744530
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

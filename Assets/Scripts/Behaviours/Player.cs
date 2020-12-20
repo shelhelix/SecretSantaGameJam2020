@@ -3,6 +3,7 @@
 using System;
 
 using SecretSantaGameJam2020.Behaviours.Common;
+using SecretSantaGameJam2020.Behaviours.UI;
 using SecretSantaGameJam2020.Events;
 using SecretSantaGameJam2020.Utils;
 using SecretSantaGameJam2020.Utils.CustomAttributes;
@@ -25,19 +26,18 @@ namespace SecretSantaGameJam2020.Behaviours {
 		
 		[NotNull] public Rigidbody2D Rigidbody;
 		[NotNull] public Transform   Sword;
+
+		LevelUI _levelUI;
 		
 		float _defaultAngularDrag;
 		
 		public event Action OnPlayerMoved;
 
-		void Start() {
+		public void Init(LevelUI screenTransitionController) {
+			_levelUI = screenTransitionController;
 			_defaultAngularDrag = Rigidbody.angularDrag;
 			Rigidbody.centerOfMass = Vector2.zero;
 			Sword.gameObject.SetActive(true);
-		}
-
-		void OnDestroy() {
-			EventManager.Fire(new PlayerDied());
 		}
 
 		void Update() {
@@ -48,12 +48,6 @@ namespace SecretSantaGameJam2020.Behaviours {
 			if (Input.GetButtonDown(FireButtonName)) {
 				Rigidbody.AddTorque(TorquePower, ForceMode2D.Impulse);				
 			}
-			// if ( Input.GetButtonDown(FireButtonName) ) {
-			// 	Sword.gameObject.SetActive(true);
-			// }
-			// if ( Input.GetButtonUp(FireButtonName) ) {
-			// 	Sword.gameObject.SetActive(false);
-			// }
 			if (Input.GetButtonDown(BreakButtonName)) {
 				Rigidbody.angularDrag = BreakAngularDrag;
 			}
@@ -72,6 +66,10 @@ namespace SecretSantaGameJam2020.Behaviours {
 
 		public void GetDamage(float damage) {
 			Hp = ComponentUtils.DefaultGetDamage(gameObject, Hp, damage);
+			if ( Hp <= 0 ) {
+				_levelUI.ShowPlayerDeadScreen();
+				EventManager.Fire(new PlayerDied());
+			}
 		}
 	}
 }
