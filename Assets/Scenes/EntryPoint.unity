@@ -527,16 +527,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2149001670109044514, guid: 15abb5c44ac22f14190f82687755f376,
-        type: 3}
-      propertyPath: TransitionTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2149001670109044514, guid: 15abb5c44ac22f14190f82687755f376,
-        type: 3}
-      propertyPath: TextAppearingTime
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2149001670926326261, guid: 15abb5c44ac22f14190f82687755f376,
         type: 3}
       propertyPath: m_Name
