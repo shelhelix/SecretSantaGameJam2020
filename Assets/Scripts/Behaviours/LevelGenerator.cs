@@ -55,12 +55,12 @@ namespace SecretSantaGameJam2020.Behaviours {
 						switch (roomInfo.RoomType) {
 							case RoomType.SimpleRoom: {
 								var comp = go.GetComponent<Room>();
-								comp.Init(starter.Player.gameObject, isLeftOpened, isRightOpened, isUpperOpened, isBottomOpened);
+								comp.Init(isLeftOpened, isRightOpened, isUpperOpened, isBottomOpened);
 								break;
 							}
 							case RoomType.RoomWithExit: {
 								var comp = go.GetComponent<ExitRoom>();
-								comp.Init(starter.Player.gameObject, isLeftOpened, isRightOpened, isUpperOpened, isBottomOpened);
+								comp.Init(isLeftOpened, isRightOpened, isUpperOpened, isBottomOpened);
 								break;
 							}
 						}

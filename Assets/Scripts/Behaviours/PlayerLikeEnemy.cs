@@ -33,16 +33,11 @@ namespace SecretSantaGameJam2020.Behaviours {
             }
             else {
                 Rigidbody.angularDrag = BreakPower;
-                var angleDiff   = -Vector2.SignedAngle(vectorToPlayer, transform.right);
-                Rigidbody.rotation += LerpRotation(0, angleDiff, RotationSpeed);
+                Rigidbody.rotation += ComponentUtils.SmoothRotate(transform.right, vectorToPlayer, RotationSpeed);
             }
             var forcePowerDirection = (vectorToPlayer.magnitude < 2.5f) ? -vectorToPlayer.normalized : vectorToPlayer.normalized;
             ComponentUtils.MoveRigidbody(Rigidbody, forcePowerDirection * Speed);
             ComponentUtils.LimitRigidbodySpeed(Rigidbody, Speed);
-        }
-
-        float LerpRotation(float a, float b, float coeff) {
-            return (b - a) * coeff + a;
         }
         
         public void GetDamage(float damage) {

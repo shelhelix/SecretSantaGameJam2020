@@ -1,5 +1,6 @@
-﻿using SecretSantaGameJam2020.Behaviours;
-using UnityEngine;
+﻿using UnityEngine;
+
+using SecretSantaGameJam2020.Behaviours;
 
 namespace SecretSantaGameJam2020.Utils {
     public static class ComponentUtils {
@@ -32,6 +33,16 @@ namespace SecretSantaGameJam2020.Utils {
         public static void DefaultDealDamage(GameObject target, float damage) {
             var destructable = target.GetComponent<IDestructable>();
             destructable?.GetDamage(damage);
+        }
+
+        public static float SmoothRotate(Vector2 right, Vector2 viewVector, float rotationSpeed) {
+            var angleDiff = -Vector2.SignedAngle(viewVector, right);
+            return LerpFloat(0, angleDiff, rotationSpeed);
+        }
+        
+        public static float LerpFloat(float a, float b, float coeff) {
+            coeff = Mathf.Clamp01(coeff);
+            return (b - a) * coeff + a;
         }
     }
 }

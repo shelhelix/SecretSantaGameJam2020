@@ -17,7 +17,8 @@ namespace SecretSantaGameJam2020.Utils.Events {
         }
         
         public void Invoke(T arg) {
-            foreach (var action in _actions) {
+            var actionsCopy = new List<Action<T>>(_actions);
+            foreach (var action in actionsCopy) {
                 SafeActionCaller.SafeCall(action, arg);
             }
         }
