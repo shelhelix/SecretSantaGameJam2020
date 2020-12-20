@@ -94,7 +94,7 @@ MonoBehaviour:
   Probabilities: 320000003200000032000000
   PossibleEnemyPrefab:
   - {fileID: 976850640322159228, guid: 72f7bb349deae8d48b20cc133a379df9, type: 3}
-  - {fileID: 6854079329786551670, guid: 6971896abb3ad694a810d6574421a1c3, type: 3}
+  - {fileID: 5225496473748864069, guid: 7d0005db3d4d3ba48a733245ee366c3e, type: 3}
   - {fileID: 0}
 --- !u!1 &5490759918903080954
 GameObject:
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Probabilities: 320000003200000032000000
   PossibleEnemyPrefab:
-  - {fileID: 976850640322159228, guid: 72f7bb349deae8d48b20cc133a379df9, type: 3}
+  - {fileID: 5225496473748864069, guid: 7d0005db3d4d3ba48a733245ee366c3e, type: 3}
   - {fileID: 6854079329786551670, guid: 6971896abb3ad694a810d6574421a1c3, type: 3}
   - {fileID: 0}
 --- !u!1 &6036726934154130011

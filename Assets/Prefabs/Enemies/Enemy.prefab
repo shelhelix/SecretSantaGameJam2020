@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d1bcb3e3da44758d71294ccd1533ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 1
+  Speed: 2
   Hp: 3
   SpinDistance: 5
   TorqueSpeed: 1
