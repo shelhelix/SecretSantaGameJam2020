@@ -30,7 +30,7 @@ namespace SecretSantaGameJam2020.Utils {
 						case NotNullAttribute _: {
 							var value = fieldInfo.GetValue(obj);
 							if ( value == null || ((value is Object unityObj) && !unityObj) ) {
-								Debug.LogErrorFormat(context, "{0} is null", fieldInfo.Name);
+								Debug.LogErrorFormat(context, "{0} is null in object {1}", fieldInfo.Name, context);
 							}
 							break;
 						}
