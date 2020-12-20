@@ -4,9 +4,10 @@ using SecretSantaGameJam2020.Utils;
 using SecretSantaGameJam2020.Utils.CustomAttributes;
 
 namespace SecretSantaGameJam2020.Behaviours {
-    public class DashEnemy : BaseEnemy {
+    public class DashEnemy : BaseEnemy, IDestructable {
         public float DashPower = 4f;
         public float Damage    = 1f;
+        public float Hp        = 3f;
 
         [NotNull] public Rigidbody2D RigidBody;
 
@@ -21,9 +22,11 @@ namespace SecretSantaGameJam2020.Behaviours {
         }
 
         void OnCollisionEnter2D(Collision2D other) {
-            var destructable = other.gameObject.GetComponent<IDestructable>();
-            destructable?.GetDamage(Damage);
-            Destroy(gameObject);
+            var player = other.contacts[0].collider.gameObject.GetComponent<Player>();
+            if ( player ) {
+                player.GetDamage(Damage);
+                Destroy(gameObject);
+            }
         }
 
         void FixedUpdate() {
@@ -36,6 +39,10 @@ namespace SecretSantaGameJam2020.Behaviours {
                 RigidBody.velocity = Vector2.zero;
                 RigidBody.AddForce(DashPower * dashDirection, ForceMode2D.Impulse);
             }
+        }
+
+        public void GetDamage(float damage) {
+            Hp = ComponentUtils.DefaultGetDamage(gameObject, Hp, damage);
         }
     }
 }

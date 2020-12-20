@@ -20,13 +20,13 @@ namespace SecretSantaGameJam2020.Utils {
             }
         }
 
-        public static float DefaultHpBehaviour(GameObject obj, float hp, float damage) {
+        public static float DefaultGetDamage(GameObject objToTakeDamage, float hp, float damage) {
             var newHp = hp - damage;
             if ( newHp <= 0 ) {
-                MonoBehaviour.print($"{obj} destroyed.");
-                GameObject.Destroy(obj);
+                MonoBehaviour.print($"{objToTakeDamage} destroyed.");
+                GameObject.Destroy(objToTakeDamage);
             }
-            MonoBehaviour.print($"Dealed damage {damage} to {obj}.\nLeft hp {newHp}");
+            MonoBehaviour.print($"Dealed damage {damage} to {objToTakeDamage}.\nLeft hp {newHp}");
             return newHp;
         }
 

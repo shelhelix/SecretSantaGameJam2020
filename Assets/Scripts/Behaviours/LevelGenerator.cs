@@ -7,6 +7,7 @@ using SecretSantaGameJam2020.Behaviours.Rooms;
 using SecretSantaGameJam2020.State;
 using SecretSantaGameJam2020.Utils;
 using SecretSantaGameJam2020.Utils.CustomAttributes;
+using Debug = UnityEngine.Debug;
 
 namespace SecretSantaGameJam2020.Behaviours {
 	public class LevelGenerator : BaseGameComponent {
@@ -16,9 +17,9 @@ namespace SecretSantaGameJam2020.Behaviours {
 		
 		public Vector2Int RoomSize;
 
-		[NotNull] public GameObject RoomPrefab;
-		[NotNull] public GameObject ExitRoomPrefab;
-		[NotNull] public Transform  LevelRoot;
+		[NotNull] public List<GameObject> RoomPrefabs;
+		[NotNull] public GameObject       ExitRoomPrefab;
+		[NotNull] public Transform        LevelRoot;
 
 		
 		readonly List<Vector2Int> _directions = new List<Vector2Int> {
@@ -39,6 +40,7 @@ namespace SecretSantaGameJam2020.Behaviours {
 		}
 
 		public void GenerateLevelObjects(GameStarter starter, LevelMap map) {
+			var objectInitializer = new RoomRandomObjectsInitializer(starter.Player.gameObject);
 			for ( var x = 0; x < GridSizeX; x++ ) {
 				for ( var y = 0; y < GridSizeY; y++ ) {
 					if ( map.HasRoom(x, y) ) {
@@ -52,25 +54,38 @@ namespace SecretSantaGameJam2020.Behaviours {
 						var isRightOpened  = IsDoorOpened(map, index + Vector2Int.right);
 						var isUpperOpened  = IsDoorOpened(map, index + Vector2Int.up);
 						var isBottomOpened = IsDoorOpened(map, index + Vector2Int.down);
+						Room comp = null;
 						switch (roomInfo.RoomType) {
 							case RoomType.SimpleRoom: {
-								var comp = go.GetComponent<Room>();
+								comp = go.GetComponent<Room>();
 								comp.Init(isLeftOpened, isRightOpened, isUpperOpened, isBottomOpened);
 								break;
 							}
 							case RoomType.RoomWithExit: {
-								var comp = go.GetComponent<ExitRoom>();
+								comp = go.GetComponent<ExitRoom>();
 								comp.Init(isLeftOpened, isRightOpened, isUpperOpened, isBottomOpened);
 								break;
 							}
 						}
+						objectInitializer.InitRoomObjects(comp);
 					}
 				}
 			}
 		}
 		
 		GameObject GetPrefab(RoomType roomType) {
-			return (roomType == RoomType.SimpleRoom) ? RoomPrefab : ExitRoomPrefab;
+			switch ( roomType ) {
+				case RoomType.SimpleRoom: {
+					return RandomUtils.GetRandomElement(RoomPrefabs);
+				}
+				case RoomType.RoomWithExit: {
+					return ExitRoomPrefab;
+				}
+				default: {
+					Debug.LogError($"Level Generator. Unsupported room type {roomType}");
+					return null;
+				}
+			}
 		}
 
 		bool IsDoorOpened(LevelMap map, Vector2Int pos) {

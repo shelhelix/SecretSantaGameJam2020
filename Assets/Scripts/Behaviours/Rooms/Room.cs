@@ -12,9 +12,10 @@ namespace SecretSantaGameJam2020.Behaviours.Rooms {
 		[NotNull] public Teleport RightTeleport;
 		[NotNull] public Teleport BottomTeleport;
 
-		[NotNull] public List<GameObject> PossibleDecorations;
+		[NotNull] public List<GameObject>          PossibleDecorations;
+		[NotNull] public List<EnemySpawnPointInfo> EnemySpawns;  
 		
-		public virtual void Init( bool isLeftDoorOpened, bool isRightDoorOpened, bool isUpperDoorOpened, bool isBottomDoorOpened) {
+		public virtual void Init(bool isLeftDoorOpened, bool isRightDoorOpened, bool isUpperDoorOpened, bool isBottomDoorOpened) {
 			UpperTeleport.Init(isUpperDoorOpened);
 			LeftTeleport.Init(isLeftDoorOpened);
 			RightTeleport.Init(isRightDoorOpened);
@@ -32,6 +33,10 @@ namespace SecretSantaGameJam2020.Behaviours.Rooms {
 				var randomDecorationIndex = Random.Range(0, decorationsCopy.Count);
 				decorationsCopy[randomDecorationIndex].SetActive(true);
 				decorationsCopy.RemoveAt(randomDecorationIndex);
+			}
+
+			foreach ( var decoration in decorationsCopy ) {
+				decoration.SetActive(false);
 			}
 		}
 	}

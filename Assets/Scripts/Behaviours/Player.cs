@@ -71,7 +71,7 @@ namespace SecretSantaGameJam2020.Behaviours {
 		}
 
 		public void GetDamage(float damage) {
-			Hp = ComponentUtils.DefaultHpBehaviour(gameObject, Hp, damage);
+			Hp = ComponentUtils.DefaultGetDamage(gameObject, Hp, damage);
 		}
 	}
 }
