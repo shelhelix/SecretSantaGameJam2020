@@ -133,10 +133,10 @@ namespace SecretSantaGameJam2020.Behaviours {
 			map.SetRoom(startRoom);
 			var availableRooms = new List<RoomInfo>{startRoom};
 			for ( var cellIndex = 0; cellIndex < CellsCount; cellIndex++ ) {
-				var room = RandomUtils.GetRandomElement(availableRooms);
-				if ( room == null ) {
+				if ( availableRooms.Count == 0 ) {
 					break;
 				}
+				var room = RandomUtils.GetRandomElement(availableRooms);
 				var emptyCellPos = GetRandomNeighbourEmptyCell(map, room);
 				if ( emptyCellPos == InvalidIndex ) {
 					availableRooms.Remove(room);
