@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 using SecretSantaGameJam2020.Behaviours.Common;
+using SecretSantaGameJam2020.State;
 using SecretSantaGameJam2020.Utils.CustomAttributes;
 
 using DG.Tweening;
@@ -28,10 +29,14 @@ namespace SecretSantaGameJam2020.Behaviours.UI {
         
         public void Show() {
             gameObject.SetActive(true);
-            _activeSequence = TransitionController.CloseTransition(TransitionTime).Append(CreateAppearingTextSeq());
+            Button.interactable = false;
+            _activeSequence = TransitionController.CloseTransition(TransitionTime)
+                .Append(CreateAppearingTextSeq())
+                .AppendCallback(() => { Button.interactable = true; });
             Button.onClick.AddListener(() => {
                 Button.onClick.RemoveAllListeners();
                 RestartText.text = "Loading...";
+                GameState.Instance.CompletedLevels = 0;
                 SceneManager.LoadSceneAsync("EntryPoint");
             });
         }
