@@ -368,7 +368,7 @@ MonoBehaviour:
   - {fileID: 5744960900531687486, guid: 70a5306937ac36742a31638c50afcadd, type: 3}
   - {fileID: 5744960900531687486, guid: 81746014cb1ca3740a1384344ae19cd1, type: 3}
   - {fileID: 5744960900531687486, guid: 2931e6f1bb7c23c4eba40aaaa16813db, type: 3}
-  RoomPrefabsProbabilities: 0f0000003c00000019000000
+  RoomPrefabsProbabilities: 05000000410000001e000000
   ExitRoomPrefab: {fileID: 586279507374224271, guid: f19dbb0434a3511469a8c5e79665ad4f,
     type: 3}
   LevelRoot: {fileID: 1662948967}
