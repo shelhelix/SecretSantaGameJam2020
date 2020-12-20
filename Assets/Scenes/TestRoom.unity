@@ -297,12 +297,12 @@ PrefabInstance:
     - target: {fileID: 7990816053577201798, guid: 6971896abb3ad694a810d6574421a1c3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.871487
+      value: 5.11
       objectReference: {fileID: 0}
     - target: {fileID: 7990816053577201798, guid: 6971896abb3ad694a810d6574421a1c3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.670819
+      value: -4.32
       objectReference: {fileID: 0}
     - target: {fileID: 7990816053577201798, guid: 6971896abb3ad694a810d6574421a1c3,
         type: 3}
@@ -864,6 +864,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 171246537713815204, guid: 72f7bb349deae8d48b20cc133a379df9,
+        type: 3}
+      propertyPath: m_Radius
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 765199203862316559, guid: 72f7bb349deae8d48b20cc133a379df9,
         type: 3}
       propertyPath: m_RootOrder
@@ -923,6 +928,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875382358230077492, guid: 72f7bb349deae8d48b20cc133a379df9,
+        type: 3}
+      propertyPath: m_Radius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238592417756083820, guid: 72f7bb349deae8d48b20cc133a379df9,
+        type: 3}
+      propertyPath: BulletFireDelay
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72f7bb349deae8d48b20cc133a379df9, type: 3}
