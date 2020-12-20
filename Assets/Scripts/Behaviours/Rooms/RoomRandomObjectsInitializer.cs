@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 
 using System.Collections.Generic;
+using SecretSantaGameJam2020.Utils;
 
 namespace SecretSantaGameJam2020.Behaviours.Rooms {
     public class RoomRandomObjectsInitializer {
-        GameObject _player;
+        readonly GameObject _player;
         
         public RoomRandomObjectsInitializer(GameObject player) {
             _player = player;
@@ -20,7 +21,8 @@ namespace SecretSantaGameJam2020.Behaviours.Rooms {
                     Debug.LogError("Spawner is unavailable. Probabilities and prefabs counts are different.");
                     continue;
                 }
-                var selectedEnemyPrefab = GetRandomPrefab(spawn.Probabilities, spawn.PossibleEnemyPrefab);
+
+                var selectedEnemyPrefab = RandomUtils.GetRandomPrefab(spawn.Probabilities, spawn.PossibleEnemyPrefab);
                 if ( !selectedEnemyPrefab ) {
                     continue;
                 }
@@ -44,26 +46,6 @@ namespace SecretSantaGameJam2020.Behaviours.Rooms {
             if ( enemyComp3 ) {
                 enemyComp3.Init();
             }
-        }
-        
-        int GetTotalProbability(List<int> probabilities) {
-            var res = 0;
-            foreach ( var probability in probabilities ) {
-                res += probability;
-            }
-            return res;
-        }
-
-        GameObject GetRandomPrefab(List<int> probabilities, List<GameObject> prefabs) {
-            var totalProbability = GetTotalProbability(probabilities);
-            var randomValue = Random.Range(0, totalProbability);
-            for ( var i = 0; i < prefabs.Count; i++ ) {
-                if ( randomValue < probabilities[i] ) {
-                    return prefabs[i];
-                }
-                randomValue -= probabilities[i];
-            }
-            return null;
         }
     }
 }

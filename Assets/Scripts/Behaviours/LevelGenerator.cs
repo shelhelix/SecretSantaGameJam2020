@@ -15,7 +15,9 @@ namespace SecretSantaGameJam2020.Behaviours {
 		
 		public Vector2Int RoomSize;
 
+		[NotNull] public GameObject       StartRoomPrefab;
 		[NotNull] public List<GameObject> RoomPrefabs;
+		[NotNull] public List<int>        RoomPrefabsProbabilities;
 		[NotNull] public GameObject       ExitRoomPrefab;
 		[NotNull] public Transform        LevelRoot;
 
@@ -38,6 +40,10 @@ namespace SecretSantaGameJam2020.Behaviours {
 		}
 
 		public void GenerateLevelObjects(GameStarter starter, LevelMap map) {
+			if ( RoomPrefabs.Count != RoomPrefabsProbabilities.Count ) {
+				Debug.LogError("Can't generate level. Rooms count and Rooms probabilites count are different");
+				return;
+			}
 			var objectInitializer = new RoomRandomObjectsInitializer(starter.Player.gameObject);
 			for ( var x = 0; x < GridSizeX; x++ ) {
 				for ( var y = 0; y < GridSizeY; y++ ) {
@@ -54,6 +60,7 @@ namespace SecretSantaGameJam2020.Behaviours {
 						var isBottomOpened = IsDoorOpened(map, index + Vector2Int.down);
 						Room comp = null;
 						switch (roomInfo.RoomType) {
+							case RoomType.StartRoom:
 							case RoomType.SimpleRoom: {
 								comp = go.GetComponent<Room>();
 								comp.Init(isLeftOpened, isRightOpened, isUpperOpened, isBottomOpened);
@@ -74,10 +81,13 @@ namespace SecretSantaGameJam2020.Behaviours {
 		GameObject GetPrefab(RoomType roomType) {
 			switch ( roomType ) {
 				case RoomType.SimpleRoom: {
-					return RandomUtils.GetRandomElement(RoomPrefabs);
+					return RandomUtils.GetRandomPrefab(RoomPrefabsProbabilities, RoomPrefabs);
 				}
 				case RoomType.RoomWithExit: {
 					return ExitRoomPrefab;
+				}
+				case RoomType.StartRoom: {
+					return StartRoomPrefab;
 				}
 				default: {
 					Debug.LogError($"Level Generator. Unsupported room type {roomType}");
@@ -119,7 +129,7 @@ namespace SecretSantaGameJam2020.Behaviours {
 
 		void GenerateRoomsOnMap(LevelMap map) {
 			var centerCoords = new Vector2Int(GridSizeX/2, GridSizeY/2);
-			var startRoom    = new RoomInfo(centerCoords);
+			var startRoom    = new RoomInfo(centerCoords, RoomType.StartRoom);
 			map.SetRoom(startRoom);
 			var availableRooms = new List<RoomInfo>{startRoom};
 			for ( var cellIndex = 0; cellIndex < CellsCount; cellIndex++ ) {
