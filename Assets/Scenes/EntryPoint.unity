@@ -419,9 +419,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60516dbf45814c0db76343baa0540417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GridSizeX: 1
-  GridSizeY: 3
-  CellsCount: 3
+  GridSizeX: 20
+  GridSizeY: 20
+  CellsCount: 100
   RoomSize: {x: 20, y: 20}
   StartRoomPrefab: {fileID: 586279507374224271, guid: 40c38d1a7cde9c34db6ab8d6fb35eab4,
     type: 3}
