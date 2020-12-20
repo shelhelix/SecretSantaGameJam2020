@@ -54,6 +54,7 @@ MonoBehaviour:
   BulletPrefab: {fileID: 7968541881451888528, guid: ebbf75163fbc55640b4ea3d27189fd99,
     type: 3}
   Collider: {fileID: 8347776661303322992}
+  BulletFireDelay: 0.5
   RotationSpeed: 0.1
   Hp: 3
 --- !u!114 &6984906390587813174
@@ -215,7 +216,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 4
+  m_Radius: 7
 --- !u!1 &8712763663597158597
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,4 +276,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 6
+  m_Radius: 10

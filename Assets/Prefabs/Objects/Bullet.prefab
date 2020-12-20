@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: 2031570604619108090}
   Collider: {fileID: 8286323388907726484}
-  Damage: 0.1
+  Damage: 1
   Speed: 10
 --- !u!50 &2031570604619108090
 Rigidbody2D:
