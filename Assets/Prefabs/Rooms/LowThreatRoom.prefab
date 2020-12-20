@@ -203,6 +203,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: LowThreatRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 3240646645011976581, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: EnemySpawns.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3240646645011976581, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: EnemySpawns.Array.data[0]
+      value: 
+      objectReference: {fileID: 8195984205819203760}
+    - target: {fileID: 3240646645011976581, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: EnemySpawns.Array.data[1]
+      value: 
+      objectReference: {fileID: 4762119069730045108}
+    - target: {fileID: 3240646645011976581, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: EnemySpawns.Array.data[2]
+      value: 
+      objectReference: {fileID: 7357526641612144673}
+    - target: {fileID: 3240646645011976581, guid: 3b446ec8d099ff44bbe3647e24c529e3,
+        type: 3}
+      propertyPath: EnemySpawns.Array.data[3]
+      value: 
+      objectReference: {fileID: 2104922534002018145}
     - target: {fileID: 4005364914179672289, guid: 3b446ec8d099ff44bbe3647e24c529e3,
         type: 3}
       propertyPath: m_RootOrder
