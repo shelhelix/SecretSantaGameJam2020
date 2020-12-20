@@ -5,6 +5,7 @@ using System;
 using SecretSantaGameJam2020.Behaviours.Common;
 
 namespace SecretSantaGameJam2020.Behaviours {
+    [RequireComponent(typeof(Collider2D))]
     public class ColliderTrigger : BaseGameComponent {
         public event Action<Collider2D> OnTriggerEnter;
         public event Action<Collider2D> OnTriggerExit;
