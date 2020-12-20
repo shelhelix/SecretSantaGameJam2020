@@ -36,7 +36,7 @@ namespace SecretSantaGameJam2020.Behaviours.UI {
             Button.onClick.AddListener(() => {
                 Button.onClick.RemoveAllListeners();
                 RestartText.text = "Loading...";
-                GameState.Instance.CompletedLevels = 0;
+                GameState.Instance.Reset();
                 SceneManager.LoadSceneAsync("EntryPoint");
             });
         }

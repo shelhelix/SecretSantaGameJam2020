@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+using SecretSantaGameJam2020.State;
 using SecretSantaGameJam2020.Utils;
 using SecretSantaGameJam2020.Utils.CustomAttributes;
 
@@ -42,6 +43,9 @@ namespace SecretSantaGameJam2020.Behaviours {
         
         public void GetDamage(float damage) {
             Hp = ComponentUtils.DefaultGetDamage(gameObject, Hp, damage);
+            if ( Hp <= 0 ) {
+                GameState.Instance.Score += 500;
+            }
         }
     }
 }
