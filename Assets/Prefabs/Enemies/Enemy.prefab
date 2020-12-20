@@ -118,7 +118,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
 --- !u!114 &6128250158450953297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,6 +277,7 @@ MonoBehaviour:
   SpinDistance: 5
   TorqueSpeed: 1
   BreakPower: 15
+  RotationSpeed: 2
   Rigidbody: {fileID: 5792791450184022246}
 --- !u!50 &5792791450184022246
 Rigidbody2D:
